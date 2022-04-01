@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <h1>💖 Подписант 2022! 💖</h1>
+    <Form name="formPrint" id="formPrint">
+      <div class="wrapInput">
+        <span>Выберите шаблон: </span>
+        <input id="template" type="file" class="upload-image" name="template" accept="application/pdf">
+      </div>
+
+      <div class="wrapInput">
+        <span>Выберите печать №1: </span>
+        <input id="signOne" type="file" class="upload-image" name="signOne">
+
+        <span>x:</span>
+        <input value="50" type="number" class="numericInput" name="xSignOne">
+
+        <span>y:</span>
+        <input value="50" type="number" class="numericInput" name="ySignOne">
+      </div>
+
+      <div class="wrapInput">
+        <span>Выберите печать №2: </span>
+        <input id="signTwo" type="file" class="upload-image" name="signTwo" >
+
+        <span>x:</span>
+        <input value="50" type="number" class="numericInput" name="xSignTwo">
+
+        <span>y:</span>
+        <input value="50" type="number" class="numericInput" name="ySignTwo">
+      </div>
+
+      <div class="wrapInput" >
+        <button id="print" type="submit">Наложить печать</button>
+      </div>
+
+<!--      <div class="wrapInput">-->
+<!--        <button id="downloadPdf">Скачать</button>-->
+<!--      </div>-->
+    </Form>
+
+
+  </body>
+</html>
