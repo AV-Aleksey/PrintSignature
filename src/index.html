@@ -9,31 +9,45 @@
   <body>
     <h1>💖 Подписант 2022! 💖</h1>
     <Form name="formPrint" id="formPrint">
+      <!--Шаблон-->
       <div class="wrapInput">
         <span>Выберите шаблон: </span>
         <input id="template" type="file" class="upload-image" name="template" accept="application/pdf">
       </div>
-
+      <!--Подпись №1-->
       <div class="wrapInput">
-        <span>Выберите печать №1: </span>
-        <input id="signOne" type="file" class="upload-image" name="signOne">
-
-        <span>x:</span>
-        <input value="50" type="number" class="numericInput" name="xSignOne">
-
-        <span>y:</span>
-        <input value="50" type="number" class="numericInput" name="ySignOne">
+        <input list="signOne" placeholder="Выберите подпись №1" class="select" name="signOne">
+        <datalist id="signOne"></datalist>
+        <div>
+          <span>x:</span>
+          <input value="50" type="number" class="numericInput" name="xSignOne">
+          <span>y:</span>
+          <input value="50" type="number" class="numericInput" name="ySignOne">
+        </div>
       </div>
 
+      <!--Подпись №2-->
       <div class="wrapInput">
-        <span>Выберите печать №2: </span>
-        <input id="signTwo" type="file" class="upload-image" name="signTwo" >
+      <input list="signTwo" placeholder="Выберите подпись №2" class="select" name="signTwo">
+        <datalist id="signTwo"></datalist>
+        <div>
+          <span>x:</span>
+          <input value="50" type="number" class="numericInput" name="xSignTwo">
+          <span>y:</span>
+          <input value="50" type="number" class="numericInput" name="ySignTwo">
+        </div>
+      </div>
 
-        <span>x:</span>
-        <input value="50" type="number" class="numericInput" name="xSignTwo">
-
-        <span>y:</span>
-        <input value="50" type="number" class="numericInput" name="ySignTwo">
+      <!--Печать №3-->
+      <div class="wrapInput">
+        <input list="printForDoc" placeholder="Выберите печать" class="select" name="printForDoc">
+        <datalist id="printForDoc"></datalist>
+        <div>
+          <span>x:</span>
+          <input value="50" type="number" class="numericInput" name="xPrintForDoc">
+          <span>y:</span>
+          <input value="50" type="number" class="numericInput" name="yPrintForDoc">
+        </div>
       </div>
 
       <div class="wrapInput" >
