@@ -7,58 +7,110 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <h1>💖 Подписант 2022! 💖</h1>
-    <Form name="formPrint" id="formPrint">
-      <!--Шаблон-->
-      <div class="wrapInput">
-        <span>Выберите шаблон: </span>
-        <input id="template" type="file" class="upload-image" name="template" accept="application/pdf">
-      </div>
-      <!--Подпись №1-->
-      <div class="wrapInput">
-        <input list="signOne" placeholder="Выберите подпись №1" class="select" name="signOne">
-        <datalist id="signOne"></datalist>
-        <div>
-          <span>x:</span>
-          <input value="50" type="number" class="numericInput" name="xSignOne">
-          <span>y:</span>
-          <input value="50" type="number" class="numericInput" name="ySignOne">
+    <section>
+      <h1>PDF Редактор v. 0.0.1</h1>
+      <div>
+        <h4>Параметры</h4>
+        <div class="fieldContainer">
+          <span class="label">Выберите папку с изображениями: </span>
+          <div class="directory">
+            <span class="textPath textPathImage"><b class="red">Выберите путь к папке</b></span>
+            <button id="imageDirectory">Выбрать папку</button>
+          </div>
+        </div>
+        <div class="fieldContainer">
+          <span class="label">Выберите папку для сохранения результата: </span>
+          <div class="directory">
+            <span class="textPath textPathUpload"><b class="red">Выберите путь к папке</b></span>
+            <button id="uploadDirectory">Выбрать папку</button>
+          </div>
         </div>
       </div>
+      <hr>
 
-      <!--Подпись №2-->
-      <div class="wrapInput">
-      <input list="signTwo" placeholder="Выберите подпись №2" class="select" name="signTwo">
-        <datalist id="signTwo"></datalist>
-        <div>
-          <span>x:</span>
-          <input value="50" type="number" class="numericInput" name="xSignTwo">
-          <span>y:</span>
-          <input value="50" type="number" class="numericInput" name="ySignTwo">
+      <Form name="formPrint" id="formPrint">
+        <h4>Выберите изображение для наложения</h4>
+        <div class="wrapInput">
+          <div class="fieldContainer">
+            <span class="label"><span class="star">*</span>Выберите шаблон (pdf): </span>
+            <input id="template" type="file" class="upload-image" name="template" accept="application/pdf" required>
+          </div>
         </div>
-      </div>
+        <div class="wrapInput">
+          <div class="fieldContainer">
+            <span class="label"><span class="star">*</span>Выберите изображение: </span>
+            <input list="signOne" placeholder="Выберите изображение" class="select" name="signOne" required>
+            <datalist id="signOne"></datalist>
+          </div>
 
-      <!--Печать №3-->
-      <div class="wrapInput">
-        <input list="printForDoc" placeholder="Выберите печать" class="select" name="printForDoc">
-        <datalist id="printForDoc"></datalist>
-        <div>
-          <span>x:</span>
-          <input value="50" type="number" class="numericInput" name="xPrintForDoc">
-          <span>y:</span>
-          <input value="50" type="number" class="numericInput" name="yPrintForDoc">
+          <div class="fieldContainer">
+            <span class="label"><span class="star">*</span>Положение на странице в px (x/y): </span>
+            <div>
+              <span>x:</span>
+              <input value="50" type="number" class="numericInput xSignOne" name="xSignOne" required>
+              <span>y:</span>
+              <input value="50" type="number" class="numericInput ySignOne" name="ySignOne" required>
+            </div>
+          </div>
+
+          <div class="fieldContainer">
+            <span class="label">Уменьшить на (%):</span>
+
+            <div>
+              <input type="number" class="numericInput signOnePercent" value="0" name="signOnePercent">
+              <button class="saveBtn" title="Запомнить параметры наложения!">⇤</button>
+            </div>
+          </div>
+
         </div>
-      </div>
+        <hr>
+        <h4>Дополнительные изображения для наложения</h4>
+        <div class="wrapInput">
+          <div class="fieldContainer">
+            <span class="label">Выберите изображение: </span>
+            <input list="signTwo" placeholder="Выберите изображение" class="select" name="signTwo">
+            <datalist id="signTwo"></datalist>
+          </div>
+          <div class="fieldContainer">
+            <span class="label">Положение на странице в px (x/y): </span>
+            <div>
+              <span>x:</span>
+              <input value="50" type="number" class="numericInput" name="xSignTwo">
+              <span>y:</span>
+              <input value="50" type="number" class="numericInput" name="ySignTwo">
+            </div>
+          </div>
+          <div class="fieldContainer">
+            <span class="label">Уменьшить на (%):</span>
+            <input type="number" class="numericInput" value="0" name="signTwoPercent">
+          </div>
+        </div>
+        <div class="wrapInput">
+          <div class="fieldContainer">
+            <span class="label">Выберите изображение: </span>
+            <input list="printForDoc" placeholder="Выберите изображение" class="select" name="printForDoc">
+            <datalist id="printForDoc"></datalist>
+          </div>
+          <div class="fieldContainer">
+            <span class="label">Положение на странице в px (x/y): </span>
+            <div>
+              <span>x:</span>
+              <input value="50" type="number" class="numericInput" name="xPrintForDoc">
+              <span>y:</span>
+              <input value="50" type="number" class="numericInput" name="yPrintForDoc">
+            </div>
+          </div>
+          <div class="fieldContainer">
+            <span class="label">Уменьшить на (%):</span>
+            <input type="number" class="numericInput" value="0" name="printForDocPercent">
+          </div>
+        </div>
+        <div class="wrapInput" >
+          <button id="print" type="submit">Наложить печать</button>
+        </div>
+      </Form>
+    </section>
 
-      <div class="wrapInput" >
-        <button id="print" type="submit">Наложить печать</button>
-      </div>
-
-<!--      <div class="wrapInput">-->
-<!--        <button id="downloadPdf">Скачать</button>-->
-<!--      </div>-->
-    </Form>
-
-
+    <div class="message">Успешно!</div>
   </body>
 </html>
